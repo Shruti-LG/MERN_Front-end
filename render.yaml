@@ -1,10 +1,10 @@
 services:
-  - type: static
+  - type: web
     name: mern-client
     runtime: static
     plan: free
     buildCommand: npm install && npm run build
-    publishPath: build
+    staticPublishPath: build
     envVars:
       - key: REACT_APP_BASE_URL
         value: https://mern-api.onrender.com/api
