@@ -22,7 +22,7 @@ const UpdateUser = () => {
         setUser({ ...user, [name]: value });
     };
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/user/${id}`)
+        axios.get(`${process.env.REACT_APP_BASE_URL}/user/${id}`)
             .then((response) => {
                 setUser(response.data);
             })
@@ -35,7 +35,7 @@ const UpdateUser = () => {
     const submitForm = async (e) => {
         e.preventDefault();
         await axios
-            .put(`http://localhost:8000/api/update/user/${id}`, user)
+            .put(`${process.env.REACT_APP_BASE_URL}/update/user/${id}`, user)
             .then((response) => {
                 // console.log("User created successfully.");
                 toast.success(response.data.message, { position: "top-right" });

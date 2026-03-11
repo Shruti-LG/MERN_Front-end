@@ -25,7 +25,7 @@ const AddUser = () => {
     const submitForm = async (e) => {
         e.preventDefault();
         await axios
-            .post("http://localhost:8000/api/user", user)
+            .post(`${process.env.REACT_APP_BASE_URL}/user`, user)
             .then((response) => {
                 // console.log("User created successfully.");
                 toast.success(response.data.message, { position: "top-right" });
